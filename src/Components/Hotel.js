@@ -1,22 +1,27 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const Meal = ({ id, name, image }) => (
-  <div className="meal-card " data-testid="meal-card" key={id}>
-    <Link className="cards " to={`/meal/${id}`}>
-      <div>
-        <img className="image" src={image} alt={name} />
+const Hotel = (props) => {
+  const { id, name, image } = props;
+  return (
+    <div>
+      <div className="meal-card " data-testid="meal-card" key={id}>
+        <Link className="cards " to={`/hotel/${id}`}>
+          <div>
+            <img className="image" src={image} alt={name} />
+          </div>
+          <div>
+            <h3 className="title">{name}</h3>
+          </div>
+        </Link>
       </div>
-      <div>
-        <h3 className="title">{name}</h3>
-      </div>
-    </Link>
-  </div>
-);
+    </div>
+  );
+};
 
-Meal.propTypes = {
+Hotel.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
 };
-export default Meal;
+export default Hotel;

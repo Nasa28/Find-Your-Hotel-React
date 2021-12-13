@@ -6,7 +6,7 @@ import { allHotels } from '../Redux/Actions/hotelActions';
 import Hotel from '../Components/Hotel';
 
 const HotelList = () => {
-  const hotels = useSelector((state) => state.hotel.hotels.data);
+  const hotels = useSelector((state) => state.hotel.hotels);
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const url = 'api/v1/hotels';
@@ -15,7 +15,7 @@ const HotelList = () => {
     try {
       const response = await axios.get(url, { mode: 'cors' });
       console.log(response);
-      dispatch(allHotels(response));
+      dispatch(allHotels(response.data));
 
       setLoading(false);
     } catch (error) {
@@ -38,7 +38,21 @@ const HotelList = () => {
   return (
     <>
       <div className="container">
-        
+        <div>
+          {hotels.map((hotel) => {
+            const { id, name, address, description, price, image_url } = hotel;
+            return (
+              <Hotel
+                key={id}
+                name={name}
+                address={address}
+                description={description}
+                price={price}
+                image={image_url}
+              />
+            );
+          })}
+        </div>
       </div>
     </>
   );
