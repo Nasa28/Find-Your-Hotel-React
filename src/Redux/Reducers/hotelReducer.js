@@ -1,4 +1,4 @@
-import actionTypes from '../constants/actionTypes';
+import actionTypes from '../Constants/actionTypes';
 
 const initialState = {
   hotels: [],
