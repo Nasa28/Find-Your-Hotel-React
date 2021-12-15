@@ -9,14 +9,12 @@ const HotelList = () => {
   const hotels = useSelector((state) => state.hotel.hotels);
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
-  const url = 'api/v1/hotels';
+  const url = 'http://localhost:8000/api/v1/hotels';
 
   const myFetch = async () => {
     try {
       const response = await axios.get(url, { mode: 'cors' });
-      console.log(response);
       dispatch(allHotels(response.data));
-
       setLoading(false);
     } catch (error) {
       console.log('No data was found');
@@ -44,6 +42,7 @@ const HotelList = () => {
             return (
               <Hotel
                 key={id}
+                id={id}
                 name={name}
                 address={address}
                 description={description}

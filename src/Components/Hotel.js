@@ -5,7 +5,7 @@ const Hotel = (props) => {
   const { id, name, image } = props;
   return (
     <div>
-      <div className="meal-card " data-testid="meal-card" key={id}>
+      <div key={id}>
         <Link className="cards " to={`/hotel/${id}`}>
           <div>
             <img className="image" src={image} alt={name} />
@@ -20,7 +20,7 @@ const Hotel = (props) => {
 };
 
 Hotel.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
 };
