@@ -7,6 +7,7 @@ import HotelList from '../Containers/HotelList';
 import HotelDetails from '../Containers/HotelDetails';
 import Error from './Error';
 import About from './About';
+import SignUp from '../Containers/User/SignUp';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <NavBar />
         <Routes>
           <Route exact path="/" element={<HotelList />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/hotel/:id" element={<HotelDetails />} />
           <Route exact path="About" element={<About />} />
           <Route path="*" element={<Error />} />

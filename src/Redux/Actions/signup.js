@@ -1,15 +1,11 @@
 import actionTypes from '../Constants/actionTypes';
 
-export const userSignup = () => ({
+export const userSignup = (user) => ({
   type: actionTypes.USER_SIGNUP,
-});
-
-export const userSignupSuccess = (user) => ({
-  type: actionTypes.USER_SIGNUP_SUCCESS,
   payload: user,
 });
 
-export const userSignupFailure = (error) => ({
+export const SignupFailure = (error) => ({
   type: actionTypes.USER_SIGNUP_FAIL,
   payload: error,
 });
