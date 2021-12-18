@@ -1,11 +1,14 @@
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 const NavBar = () => {
+  const auth = useSelector((state) => state.authenticate);
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           <h2 className="navbar-brand" href="#">
-            APP NAME
+            <Link to="/">APP NAME</Link>
           </h2>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
@@ -19,12 +22,23 @@ const NavBar = () => {
                   Favourites
                 </a>
               </li>
-              <Link to="/signup">
-                <li className="nav-item">Sign Up</li>
-              </Link>
-              <Link to="/login">
-                <li className="nav-item">Login</li>
-              </Link>
+              {!auth.status && (
+                <div>
+                  <li className="nav-item">
+                    <Link to="/signup">Sign Up </Link>
+                  </li>
+
+                  <li className="nav-item">
+                    <Link to="/login">Login</Link>
+                  </li>
+                </div>
+              )}
+
+              {auth.status && (
+                <li className="nav-item">
+                  <Link to="/signup">Logout </Link>
+                </li>
+              )}
             </ul>
           </div>
         </div>

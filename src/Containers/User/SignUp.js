@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import authenticate from '../../Redux/Actions/authenticate';
 import axios from 'axios';
+import { Navigate } from 'react-router';
+
 import { userSignup, SignupFailure } from '../../Redux/Actions/signup';
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -24,7 +26,7 @@ const SignUp = () => {
     axios
       .post(url, { user: person })
       .then((response) => {
-        localStorage.setItem('logged', JSON.stringify(response));
+        localStorage.setItem('logged', JSON.stringify(response.data));
         dispatch(
           userSignup({
             token: response.data.token,
@@ -32,7 +34,7 @@ const SignUp = () => {
           }),
         );
       })
-      .catch((error) => {
+      .catch(() => {
         dispatch(
           SignupFailure(
             'Username must be longer than 4 and password longer than 8. Try again!',
@@ -46,11 +48,6 @@ const SignUp = () => {
           ...person,
         }),
       );
-      setPerson({
-        username: '',
-        password: '',
-        password_confirmation: '',
-      });
     }
   };
 
@@ -67,6 +64,8 @@ const SignUp = () => {
   const { username, password, password_confirmation } = person;
   return (
     <div>
+      {signup.user.token && <Navigate to="/" replace={true} />}
+
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <input

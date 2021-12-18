@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import authenticate from '../../Redux/Actions/authenticate';
-import { useNavigate } from 'react-router-dom';
 import { userLogin, loginFailure } from '../../Redux/Actions/login';
 import axios from 'axios';
 import AuthError from './AuthError';
+import { Navigate } from 'react-router';
 
 const Login = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const login = useSelector((state) => state.login);
   const auth = useSelector((state) => state.authenticate);
@@ -28,7 +27,7 @@ const Login = () => {
     axios
       .post(url, { ...person })
       .then((response) => {
-        localStorage.setItem('loggedIn', JSON.stringify(response));
+        localStorage.setItem('loggedIn', JSON.stringify(response.data));
         dispatch(
           userLogin({
             token: response.data.token,
@@ -47,14 +46,13 @@ const Login = () => {
         dispatch(loginFailure('Invalid username or Password. Try again!'));
       });
 
-    if (auth.status) {
-      navigate('/');
-    }
+   
   };
   const { username, password } = person;
   return (
     <div>
       {login.error && <AuthError error={login.error} />}
+      {auth.status && <Navigate to="/" replace={true} />}
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <input
