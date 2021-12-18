@@ -1,16 +1,90 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import authenticate from '../../Redux/Actions/authenticate';
+import { useNavigate } from 'react-router-dom';
+import { userLogin, loginFailure } from '../../Redux/Actions/login';
 import axios from 'axios';
+import AuthError from './AuthError';
 
-import React from 'react'
+const Login = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const login = useSelector((state) => state.login);
+  const auth = useSelector((state) => state.authenticate);
 
-const Login  = () => {
+  const [person, setPerson] = useState({
+    username: '',
+    password: '',
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setPerson({ ...person, [name]: value });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const url = 'http://localhost:8000/api/v1/login';
+    axios
+      .post(url, { ...person })
+      .then((response) => {
+        localStorage.setItem('loggedIn', JSON.stringify(response));
+        dispatch(
+          userLogin({
+            token: response.data.token,
+            username: response.data.username,
+          }),
+        );
+        dispatch(
+          authenticate({
+            status: true,
+            token: response.data.token,
+            username: response.data.username,
+          }),
+        );
+      })
+      .catch(() => {
+        dispatch(loginFailure('Invalid username or Password. Try again!'));
+      });
+
+    if (auth.status) {
+      navigate('/');
+    }
+  };
+  const { username, password } = person;
   return (
     <div>
-      
-    </div>
-  )
-}
+      {login.error && <AuthError error={login.error} />}
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <input
+            className="form-control"
+            type="text"
+            name="username"
+            placeholder="Username"
+            value={username}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-export default Login
+        <div className="form-group">
+          <input
+            className="form-control"
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={password}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <button type="submit" className="btn btn-primary">
+          Login
+        </button>
+      </form>
+    </div>
+  );
+};
+
+export default Login;

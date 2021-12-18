@@ -1,7 +1,7 @@
 import actionTypes from '../Constants/actionTypes';
 
 
-export const loginSuccess = (user) => ({
+export const userLogin = (user) => ({
   type: actionTypes.USER_LOGIN,
   payload: user,
 });

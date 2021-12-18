@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import authenticate from '../../Redux/Actions/authenticate';
 import axios from 'axios';
-import { userSignup } from '../../Redux/Actions/signup';
+import { userSignup, SignupFailure } from '../../Redux/Actions/signup';
 const SignUp = () => {
   const dispatch = useDispatch();
   const signup = useSelector((state) => state.signup);
@@ -33,7 +33,11 @@ const SignUp = () => {
         );
       })
       .catch((error) => {
-        console.log(error);
+        dispatch(
+          SignupFailure(
+            'Username must be longer than 4 and password longer than 8. Try again!',
+          ),
+        );
       });
 
     if (person.username && person.password && person.password_confirmation) {
