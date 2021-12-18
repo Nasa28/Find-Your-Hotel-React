@@ -28,6 +28,7 @@ const Login = () => {
       .post(url, { ...person })
       .then((response) => {
         localStorage.setItem('loggedIn', JSON.stringify(response.data));
+        
         dispatch(
           userLogin({
             token: response.data.token,

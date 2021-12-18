@@ -26,7 +26,7 @@ const SignUp = () => {
     axios
       .post(url, { user: person })
       .then((response) => {
-        localStorage.setItem('logged', JSON.stringify(response.data));
+        localStorage.setItem('loggedIn', JSON.stringify(response.data));
         dispatch(
           userSignup({
             token: response.data.token,
