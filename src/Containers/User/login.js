@@ -27,12 +27,13 @@ const Login = () => {
     axios
       .post(url, { ...person })
       .then((response) => {
-        localStorage.setItem('loggedIn', JSON.stringify(response.data));
-        
+        localStorage.setItem('token', JSON.stringify(response.data));
+
         dispatch(
           userLogin({
             token: response.data.token,
             username: response.data.username,
+            id: response.data.id,
           }),
         );
         dispatch(
@@ -40,14 +41,13 @@ const Login = () => {
             status: true,
             token: response.data.token,
             username: response.data.username,
+            id: response.data.id,
           }),
         );
       })
       .catch(() => {
         dispatch(loginFailure('Invalid username or Password. Try again!'));
       });
-
-   
   };
   const { username, password } = person;
   return (

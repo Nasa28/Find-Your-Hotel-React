@@ -18,7 +18,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('loggedIn'));
+    const user = JSON.parse(localStorage.getItem('token'));
     if (user) {
       dispatch(
         authenticate({
@@ -30,7 +30,6 @@ function App() {
     } else {
       dispatch(authenticate());
     }
-    // dispatch(fetchFavs(user));
   }, []);
   return (
     <div>

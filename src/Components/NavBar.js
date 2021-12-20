@@ -22,11 +22,11 @@ const NavBar = () => {
                   </Link>
                 </h4>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
+              <ul className="navbar-nav">
+                <Link to="/favourites" className="nav-link ml-4">
                   Favourites
-                </a>
-              </li>
+                </Link>
+              </ul>
               {!auth.status && (
                 <ul className="navbar-nav">
                   <Link to="/signup" className="nav-link ml-4">
