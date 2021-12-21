@@ -4,7 +4,7 @@ import detailReducer from './detailReducer';
 import signupReducer from './signupReducer';
 import authenticateReducer from './authenticate';
 import loginReducer from './loginReducer';
-import addFavReducer from './addFavReducer';
+import fetchFavReducer from './fetchFavReducer';
 
 const rootReducer = combineReducers({
   hotel: hotelReducer,
@@ -12,7 +12,7 @@ const rootReducer = combineReducers({
   signup: signupReducer,
   authenticate: authenticateReducer,
   login: loginReducer,
-  addFav: addFavReducer,
+  favourites: fetchFavReducer,
 });
 
 export default rootReducer;
