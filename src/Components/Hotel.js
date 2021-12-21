@@ -44,7 +44,7 @@ const Hotel = (props) => {
             className="btn btn-primary fav-button"
             onClick={addFavouriteHandler}
           >
-            Add to favorites
+            Add to favourites
           </button>
         )}
       </div>

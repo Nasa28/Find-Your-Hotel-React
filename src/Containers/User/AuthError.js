@@ -14,19 +14,6 @@ function AuthError({ error }) {
       )}
     </div>
   );
-  // if (!isError) {
-  //   return (
-  //     <div>
-  //       <p className="alert alert-danger">{error}</p>
-  //     </div>
-  //   );
-  // } else {
-  //   return (
-  //     <div>
-  //       <p className="alert alert-success">{state}</p>
-  //     </div>
-  // //   );
-  // }
 }
 
 export default AuthError;

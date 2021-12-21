@@ -1,7 +1,7 @@
 import actionTypes from '../Constants/actionTypes';
 
 const initialState = {
-  favorite: [],
+  favourite: [],
 };
 
 const fetchFavReducer = (state = initialState, { type, payload }) => {
@@ -9,7 +9,7 @@ const fetchFavReducer = (state = initialState, { type, payload }) => {
     case actionTypes.FETCH_FAVOURITES:
       return {
         ...state,
-        favorite: payload,
+        favourite: payload,
       };
 
     default:
