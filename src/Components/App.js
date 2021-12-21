@@ -13,6 +13,7 @@ import About from './About';
 import SignUp from '../Containers/User/SignUp';
 import Login from '../Containers/User/login';
 import Logout from '../Containers/User/Logout';
+import Favourites from '../Containers/Favourite';
 
 function App() {
   const dispatch = useDispatch();
@@ -40,6 +41,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
+          <Route path="/favourites" element={<Favourites />} />
           <Route path="/hotel/:id" element={<HotelDetails />} />
           <Route exact path="About" element={<About />} />
           <Route path="*" element={<Error />} />

@@ -1,13 +1,16 @@
 import actionTypes from '../Constants/actionTypes';
 
 const initialState = {
-  favourites: [],
+  favorite: [],
 };
 
 const fetchFavReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case actionTypes.FETCH_FAVOURITES:
-      return { ...state, favourites: payload };
+      return {
+        ...state,
+        favorite: payload,
+      };
 
     default:
       return state;

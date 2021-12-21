@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import LoggedInUser from '../Containers/User/LoggedInUser';
+import FetchFav from '../Containers/FetchFav';
 const NavBar = () => {
   const auth = useSelector((state) => state.authenticate);
 
@@ -22,9 +23,9 @@ const NavBar = () => {
                   </Link>
                 </h4>
               </li>
-              <ul className="navbar-nav">
+              <ul>
                 <Link to="/favourites" className="nav-link ml-4">
-                  Favourites
+                  <FetchFav />
                 </Link>
               </ul>
               {!auth.status && (
