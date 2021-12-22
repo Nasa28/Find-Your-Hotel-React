@@ -1,11 +1,12 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { fetchFavourites } from '../Redux/Actions/Favourites';
 const Favourites = () => {
   const favHotel = useSelector((state) => state.favourites.favourite);
   const auth = useSelector((state) => state.authenticate);
+  const dispatch = useDispatch();
   const removeHandler = async (id) => {
-    console.log(id);
     const url = `http://localhost:8000/api/v1/favourites/${id}`;
     try {
       await axios.delete(
@@ -18,10 +19,13 @@ const Favourites = () => {
 
         { withCredentials: true },
       );
+      const favHotels = favHotel.filter((favourite) => favourite.id !== id);
+      dispatch(fetchFavourites(favHotels));
     } catch (error) {
       console.log(error);
     }
   };
+
   return (
     <div>
       {favHotel.map((favourite) => {
