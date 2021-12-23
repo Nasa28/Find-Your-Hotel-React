@@ -1,16 +1,22 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { fetchFavourites } from '../Redux/Actions/Favourites';
 import axios from 'axios';
 const Hotel = (props) => {
+  const dispatch = useDispatch();
   const { id, name, image } = props;
+  let favor;
+  const favHotel = useSelector((state) => state.favourites.favourite);
+
+  const isFav = (hotelId) => favHotel.map((fav) => fav.id).includes(hotelId);
 
   const auth = useSelector((state) => state.authenticate);
-  const addFavouriteHandler = () => {
+  const addFavouriteHandler = async () => {
     const url = 'http://localhost:8000/api/v1/favourites';
-
-    axios
-      .post(
+    try {
+      await axios.post(
         url,
 
         { hotel_id: id },
@@ -22,11 +28,14 @@ const Hotel = (props) => {
         },
 
         { withCredentials: true },
-      )
-      .catch((error) => {
-        console.log(error);
-      });
+      );
+      const favs = favHotel.slice(0);
+      dispatch(fetchFavourites([...favs, props]));
+    } catch (error) {
+      console.log(error);
+    }
   };
+
   return (
     <div>
       <div key={id}>
@@ -39,13 +48,24 @@ const Hotel = (props) => {
           </div>
         </Link>
         {auth.token && (
-          <button
-            type="button"
-            className="btn btn-primary fav-button"
-            onClick={addFavouriteHandler}
-          >
-            Add to favourites
-          </button>
+          <div>
+            {!isFav(id) ? (
+              <button
+                type="button"
+                className="btn btn-primary fav-button"
+                onClick={addFavouriteHandler}
+              >
+                Add to favorites
+              </button>
+            ) : (
+              <button
+                type="button"
+                className="btn btn-secondary fav-button disabled"
+              >
+                Remove Favourite
+              </button>
+            )}
+          </div>
         )}
       </div>
     </div>

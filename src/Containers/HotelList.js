@@ -10,6 +10,7 @@ const HotelList = () => {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const url = 'http://localhost:8000/api/v1/hotels';
+  const favHotels = useSelector((state) => state.favourites.favourite);
 
   const myFetch = async () => {
     try {
@@ -32,6 +33,9 @@ const HotelList = () => {
       </main>
     );
   }
+
+   const checkFav = (hotelId) =>
+     favHotels.map((fav) => fav.id).includes(hotelId);
 
   return (
     <>

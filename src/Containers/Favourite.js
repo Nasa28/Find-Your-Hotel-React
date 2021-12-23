@@ -6,7 +6,7 @@ const Favourites = () => {
   const favHotel = useSelector((state) => state.favourites.favourite);
   const auth = useSelector((state) => state.authenticate);
   const dispatch = useDispatch();
-  const removeHandler = async (id) => {
+   const removeHandler = async (id) => {
     const url = `http://localhost:8000/api/v1/favourites/${id}`;
     try {
       await axios.delete(
