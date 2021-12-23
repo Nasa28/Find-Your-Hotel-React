@@ -1,7 +1,7 @@
 import NavBar from './NavBar';
 import '../Styles/App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import Footer from './Footer';
+import Footer from './Footer';
 // import Hotel from './Hotel';
 import authenticate from '../Redux/Actions/authenticate';
 import { useDispatch } from 'react-redux';
@@ -14,6 +14,7 @@ import SignUp from '../Containers/User/SignUp';
 import Login from '../Containers/User/login';
 import Logout from '../Containers/User/Logout';
 import Favourites from '../Containers/Favourite';
+import Home from './Home';
 
 function App() {
   const dispatch = useDispatch();
@@ -37,7 +38,8 @@ function App() {
       <Router>
         <NavBar />
         <Routes>
-          <Route exact path="/" element={<HotelList />} />
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/Hotels" element={<HotelList />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
@@ -46,6 +48,7 @@ function App() {
           <Route exact path="About" element={<About />} />
           <Route path="*" element={<Error />} />
         </Routes>
+        <Footer />
       </Router>
     </div>
   );

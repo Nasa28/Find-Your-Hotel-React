@@ -7,7 +7,7 @@ function Logout() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    localStorage.removeItem('loggedIn');
+    localStorage.removeItem('token');
     dispatch(authenticate());
   }, []);
 
