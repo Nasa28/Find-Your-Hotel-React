@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Loading from '../Components/Loading';
 import { allHotels } from '../Redux/Actions/hotelActions';
 import Hotel from '../Components/Hotel';
+import '../Styles/hotel.css'
 
 const HotelList = () => {
   const hotels = useSelector((state) => state.hotel.hotels);
@@ -34,13 +35,13 @@ const HotelList = () => {
     );
   }
 
-   const checkFav = (hotelId) =>
-     favHotels.map((fav) => fav.id).includes(hotelId);
+  const checkFav = (hotelId) =>
+    favHotels.map((fav) => fav.id).includes(hotelId);
 
   return (
     <>
       <div className="container">
-        <div>
+        <div className="hotelList">
           {hotels.map((hotel) => {
             const { id, name, address, description, price, image_url } = hotel;
             return (

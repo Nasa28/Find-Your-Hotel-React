@@ -1,0 +1,23 @@
+.hotel {
+  width: 350px;
+  border: 4px solid blue;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.hotelList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.image {
+  height: 250px;
+  width: 100%;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 5px;
+  margin-right: 10px;
+}

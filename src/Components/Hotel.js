@@ -4,10 +4,10 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { fetchFavourites } from '../Redux/Actions/Favourites';
 import axios from 'axios';
+import '../Styles/hotel.css';
 const Hotel = (props) => {
   const dispatch = useDispatch();
-  const { id, name, image } = props;
-  let favor;
+  const { id, name, image, price, address } = props;
   const favHotel = useSelector((state) => state.favourites.favourite);
 
   const isFav = (hotelId) => favHotel.map((fav) => fav.id).includes(hotelId);
@@ -37,37 +37,37 @@ const Hotel = (props) => {
   };
 
   return (
-    <div>
-      <div key={id}>
-        <Link className="cards " to={`/hotel/${id}`}>
-          <div>
-            <img className="image" src={image} alt={name} />
-          </div>
-          <div>
-            <h3 className="title">{name}</h3>
-          </div>
-        </Link>
-        {auth.token && (
-          <div>
-            {!isFav(id) ? (
-              <button
-                type="button"
-                className="btn btn-primary fav-button"
-                onClick={addFavouriteHandler}
-              >
-                Add to favorites
-              </button>
-            ) : (
-              <button
-                type="button"
-                className="btn btn-secondary fav-button disabled"
-              >
-                Remove Favourite
-              </button>
-            )}
-          </div>
-        )}
-      </div>
+    <div className="hotel">
+      <Link to={`/hotel/${id}`}>
+        <div className="img">
+          <img className="image" src={image} alt={name} />
+        </div>
+        <div>
+          <h5 className="title">{name}</h5>
+        </div>
+        <div className="info">
+          <p>{address}</p>
+          <p>${price}</p>
+        </div>
+      </Link>
+
+      {auth.token && (
+        <div>
+          {!isFav(id) ? (
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={addFavouriteHandler}
+            >
+              Add to favorites
+            </button>
+          ) : (
+            <button type="button" className="btn btn-secondary disabled">
+              Remove Favourite
+            </button>
+          )}
+        </div>
+      )}
     </div>
   );
 };
