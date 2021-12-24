@@ -28,8 +28,8 @@ const Favourites = () => {
 
   return (
     <>
-      <div className="container">
-        <div className="hotelList push" >
+      <div className="container " data-testid="favourite">
+        <div className="hotelList push">
           {favHotel.map((favourite) => {
             const { id, name, image_url, address, price } = favourite;
             return (
