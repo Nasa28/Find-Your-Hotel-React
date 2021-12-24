@@ -37,7 +37,7 @@ const Hotel = (props) => {
   };
 
   return (
-    <div className="hotel">
+    <div className="hotel" data-testid="hotel-card">
       <Link to={`/hotel/${id}`} className="cards">
         <div className="img">
           <img className="image" src={image} alt={name} />
@@ -73,7 +73,7 @@ const Hotel = (props) => {
 };
 
 Hotel.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
 };
