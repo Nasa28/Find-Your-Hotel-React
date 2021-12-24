@@ -7,7 +7,7 @@ const NavBar = () => {
   const auth = useSelector((state) => state.authenticate);
 
   return (
-    <div>
+    <div data-testid="nav">
       <nav className="">
         <div className="container nav">
           <h2 className="">
