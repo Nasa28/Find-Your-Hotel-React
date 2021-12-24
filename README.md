@@ -1,10 +1,10 @@
-> # FIND HOTEL ACCOMODATION APP
+ #              FIND HOTEL ACCOMODATION APP
 
 > Find Hotel Accommodation App is a FullStack app built with ReactJs for the frontend and Ruby On Rails for the backEnd. When you first visit the app, you will see the homepage from where you can visit either visit the Hotel list, Login or Sign up.
  On the Hotel list page, a user can add some hotels to his favorite, by clicking the add to favorites button.
 > NB: The add to the favorite button is only visible to logged-in users.
 
-From the favorite page, you can click on the remove favorite button to remove a particular house from your favorite list. Also, by clicking on any of the houses, you can access the details page of the house.
+> From the favorite page, you can click on the remove favorite button to remove a particular house from your favorite list. Also, by clicking on any of the houses, you can access the details page of the house.
 
 ![screenshot](src/images/readme!.png)
 
