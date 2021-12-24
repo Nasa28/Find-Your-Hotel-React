@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
 import Loading from '../Components/Loading';
 import { singleHotel } from '../Redux/Actions/hotelActions';
-
+import '../Styles/detail.css';
 const HotelDetails = () => {
   const details = useSelector((state) => state.detail.details);
   const [loading, setLoading] = useState(true);
@@ -35,13 +35,15 @@ const HotelDetails = () => {
   }
   const { name, address, description, price, image_url } = details;
   return (
-    <div>
+    <div className="container">
       <div>
-        <h3>{name}</h3>
-        <img src={image_url} alt={name} />
+        <h3>Name: {name}</h3>
+        <p>Address: {address}</p>
+        <p>Price: ${price}</p>
+        <img src={image_url} alt={name} className="detail-img" />
       </div>
-      <div>
-        <h2>INSTRUCTIONS</h2>
+      <div className="description">
+        <h3 className = 'text-decoration-underline'>Hotel Description</h3>
         <p>{description}</p>
       </div>
     </div>

@@ -38,7 +38,7 @@ const Hotel = (props) => {
 
   return (
     <div className="hotel">
-      <Link to={`/hotel/${id}`}>
+      <Link to={`/hotel/${id}`} className="cards">
         <div className="img">
           <img className="image" src={image} alt={name} />
         </div>

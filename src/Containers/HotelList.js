@@ -35,9 +35,6 @@ const HotelList = () => {
     );
   }
 
-  const checkFav = (hotelId) =>
-    favHotels.map((fav) => fav.id).includes(hotelId);
-
   return (
     <>
       <div className="container">
