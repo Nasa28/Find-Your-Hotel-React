@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
-function AuthError({ error }) {
-  const [isError, setIsError] = useState(null);
+const LoginError = ({ error }) => {
+  const [isError, setIsError] = useState();
 
   return (
     <div>
@@ -14,10 +14,10 @@ function AuthError({ error }) {
       )}
     </div>
   );
-}
+};
 
-export default AuthError;
+export default LoginError;
 
-AuthError.propTypes = {
+LoginError.propTypes = {
   error: PropTypes.string.isRequired,
 };

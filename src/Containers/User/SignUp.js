@@ -63,11 +63,12 @@ const SignUp = () => {
   }
   const { username, password, password_confirmation } = person;
   return (
-    <div>
-      {signup.user.token && <Navigate to="/" replace={true} />}
+    <div className="col-4 login">
+      <h2 className="text-center  mb-3">User SignUp</h2>
+      {signup.user.token && <Navigate to="/hotels" replace={true} />}
 
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
+        <div className="form-group mb-4">
           <input
             className="form-control"
             type="text"
@@ -79,7 +80,7 @@ const SignUp = () => {
           />
         </div>
 
-        <div className="form-group">
+        <div className="form-group mb-4">
           <input
             className="form-control"
             type="password"
@@ -91,7 +92,7 @@ const SignUp = () => {
           />
         </div>
 
-        <div className="form-group">
+        <div className="form-group mb-4">
           <input
             className="form-control"
             type="password"
@@ -102,7 +103,7 @@ const SignUp = () => {
             required
           />
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-primary form-control">
           Register
         </button>
       </form>

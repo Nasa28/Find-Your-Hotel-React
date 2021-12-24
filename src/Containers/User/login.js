@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import authenticate from '../../Redux/Actions/authenticate';
 import { userLogin, loginFailure } from '../../Redux/Actions/login';
 import axios from 'axios';
-import AuthError from './AuthError';
+import LoginError from './LoginError';
 import { Navigate } from 'react-router';
 
 const Login = () => {
@@ -51,13 +51,14 @@ const Login = () => {
   };
   const { username, password } = person;
   return (
-    <div>
-      {login.error && <AuthError error={login.error} />}
+    <div className="col-4 login">
+      <h2 className="text-center mb-4">User Login</h2>
+      {login.error && <LoginError error={login.error} />}
       {auth.status && <Navigate to="/" replace={true} />}
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <input
-            className="form-control"
+            className="form-control mb-4"
             type="text"
             name="username"
             placeholder="Username"
@@ -69,7 +70,7 @@ const Login = () => {
 
         <div className="form-group">
           <input
-            className="form-control"
+            className="form-control mb-3"
             type="password"
             name="password"
             placeholder="Password"
@@ -78,7 +79,7 @@ const Login = () => {
             required
           />
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-primary  form-control">
           Login
         </button>
       </form>
