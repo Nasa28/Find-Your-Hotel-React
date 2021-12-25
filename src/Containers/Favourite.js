@@ -1,29 +1,29 @@
+/* eslint-disable camelcase */
+
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { fetchFavourites } from '../Redux/Actions/Favourites';
+
 const Favourites = () => {
   const favHotel = useSelector((state) => state.favourites.favourite);
   const auth = useSelector((state) => state.authenticate);
   const dispatch = useDispatch();
   const removeHandler = async (id) => {
     const url = `https://findmyhotels.herokuapp.com/api/v1/favourites/${id}`;
-    try {
-      await axios.delete(
-        url,
-        {
-          headers: {
-            Authorization: `Bearer ${auth.token}`,
-          },
-        },
 
-        { withCredentials: true },
-      );
-      const favHotels = favHotel.filter((favourite) => favourite.id !== id);
-      dispatch(fetchFavourites(favHotels));
-    } catch (error) {
-      console.log(error);
-    }
+    await axios.delete(
+      url,
+      {
+        headers: {
+          Authorization: `Bearer ${auth.token}`,
+        },
+      },
+
+      { withCredentials: true },
+    );
+    const favHotels = favHotel.filter((favourite) => favourite.id !== id);
+    dispatch(fetchFavourites(favHotels));
   };
 
   return (
@@ -31,11 +31,13 @@ const Favourites = () => {
       <div className="container " data-testid="favourite">
         <div className="hotelList push">
           {favHotel.map((favourite) => {
-            const { id, name, image_url, address, price } = favourite;
+            const {
+              id, name, image_url, address, price,
+            } = favourite;
             return (
-              <div className="hotel">
-                <div key={id}>
-                  <Link className="cards " to={`/hotel/${id}`}>
+              <div key={id} className="hotel">
+                <div>
+                  <Link key={id} className="cards " to={`/hotel/${id}`}>
                     <div>
                       <img className="image" src={image_url} alt={name} />
                     </div>
@@ -44,7 +46,10 @@ const Favourites = () => {
                     </div>
                     <div className="info">
                       <p>{address}</p>
-                      <p>${price}</p>
+                      <p>
+                        $
+                        {price}
+                      </p>
                     </div>
                   </Link>
                   <button

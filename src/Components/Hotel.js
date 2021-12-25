@@ -1,13 +1,15 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { fetchFavourites } from '../Redux/Actions/Favourites';
+import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
+import { fetchFavourites } from '../Redux/Actions/Favourites';
 import '../Styles/hotel.css';
+
 const Hotel = (props) => {
   const dispatch = useDispatch();
-  const { id, name, image, price, address } = props;
+  const {
+    id, name, image, price, address,
+  } = props;
   const favHotel = useSelector((state) => state.favourites.favourite);
 
   const isFav = (hotelId) => favHotel.map((fav) => fav.id).includes(hotelId);
@@ -15,25 +17,21 @@ const Hotel = (props) => {
   const auth = useSelector((state) => state.authenticate);
   const addFavouriteHandler = async () => {
     const url = 'https://findmyhotels.herokuapp.com/api/v1/favourites';
-    try {
-      await axios.post(
-        url,
+    await axios.post(
+      url,
 
-        { hotel_id: id },
+      { hotel_id: id },
 
-        {
-          headers: {
-            Authorization: `Bearer ${auth.token}`,
-          },
+      {
+        headers: {
+          Authorization: `Bearer ${auth.token}`,
         },
+      },
 
-        { withCredentials: true },
-      );
-      const favs = favHotel.slice(0);
-      dispatch(fetchFavourites([...favs, props]));
-    } catch (error) {
-      console.log(error);
-    }
+      { withCredentials: true },
+    );
+    const favs = favHotel.slice(0);
+    dispatch(fetchFavourites([...favs, props]));
   };
 
   return (
@@ -47,7 +45,10 @@ const Hotel = (props) => {
         </div>
         <div className="info">
           <p>{address}</p>
-          <p>${price}</p>
+          <p>
+            $
+            {price}
+          </p>
         </div>
       </Link>
 
@@ -74,7 +75,9 @@ const Hotel = (props) => {
 
 Hotel.propTypes = {
   id: PropTypes.string.isRequired,
+  price: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
+  address: PropTypes.string.isRequired,
 };
 export default Hotel;

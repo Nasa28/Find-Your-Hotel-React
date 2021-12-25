@@ -1,10 +1,13 @@
+/* eslint-disable camelcase */
+
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import authenticate from '../../Redux/Actions/authenticate';
 import axios from 'axios';
 import { Navigate } from 'react-router';
+import authenticate from '../../Redux/Actions/authenticate';
 
 import { userSignup, SignupFailure } from '../../Redux/Actions/signup';
+
 const SignUp = () => {
   const dispatch = useDispatch();
   const signup = useSelector((state) => state.signup);
@@ -65,7 +68,7 @@ const SignUp = () => {
   return (
     <div className="col-4 login">
       <h2 className="text-center  mb-3">User SignUp</h2>
-      {signup.user.token && <Navigate to="/hotels" replace={true} />}
+      {signup.user.token && <Navigate to="/hotels" replace />}
 
       <form onSubmit={handleSubmit}>
         <div className="form-group mb-4">

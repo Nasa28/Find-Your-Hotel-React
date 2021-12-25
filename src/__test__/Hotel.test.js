@@ -1,7 +1,7 @@
 import { render, screen, cleanup } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { store } from '../Redux/Store/Store';
 import { Provider } from 'react-redux';
+import { store } from '../Redux/Store/Store';
 import '@testing-library/jest-dom';
 import Hotel from '../Components/Hotel';
 

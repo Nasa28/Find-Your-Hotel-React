@@ -1,14 +1,14 @@
-import React from 'react'
-import {  useSelector } from 'react-redux';
-
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 const LoggedInUser = () => {
-    const auth = useSelector((state) => state.authenticate);
+  const auth = useSelector((state) => state.authenticate);
   return (
     <div>
-      Welcome @{auth.username}
+      Welcome @
+      {auth.username}
     </div>
-  )
-}
+  );
+};
 
-export default LoggedInUser
+export default LoggedInUser;

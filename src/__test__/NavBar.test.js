@@ -2,10 +2,9 @@ import React from 'react';
 import { render, screen, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
-import NavBar from '../Components/NavBar';
 import { Provider } from 'react-redux';
+import NavBar from '../Components/NavBar';
 import { store } from '../Redux/Store/Store';
-
 
 afterEach(() => {
   cleanup();

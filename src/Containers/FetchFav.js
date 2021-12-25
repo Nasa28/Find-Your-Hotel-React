@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { fetchFavourites } from './../Redux/Actions/Favourites';
 import { useDispatch, useSelector } from 'react-redux';
+import { fetchFavourites } from '../Redux/Actions/Favourites';
 
 const FetchFav = () => {
   const auth = useSelector((state) => state.authenticate);
@@ -20,17 +20,17 @@ const FetchFav = () => {
       )
       .then((res) => {
         dispatch(fetchFavourites(res.data));
-        // localStorage.setItem('favourite', JSON.stringify(res.data));
-
-      })
-      .catch((err) => {
-        console.log(err);
       });
   };
 
   return (
     <div>
-      <ul className="navbar-nav" onClick={fetchhandler}>
+      <ul
+        role="presentation"
+        className="navbar-nav"
+        onKeyDown={fetchhandler}
+        onClick={fetchhandler}
+      >
         Favourites
       </ul>
     </div>

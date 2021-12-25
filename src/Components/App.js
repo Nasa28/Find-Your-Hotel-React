@@ -1,11 +1,10 @@
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import Footer from './Footer';
 import NavBar from './NavBar';
 import '../Styles/App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Footer from './Footer';
-// import Hotel from './Hotel';
 import authenticate from '../Redux/Actions/authenticate';
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
 import HotelList from '../Containers/HotelList';
 import HotelDetails from '../Containers/HotelDetails';
 import Error from './Error';

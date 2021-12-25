@@ -1,4 +1,4 @@
-import actionTypes from "../Constants/actionTypes";
+import actionTypes from '../Constants/actionTypes';
 
 const authenticate = (user) => ({
   type: actionTypes.AUTHENTICATE,

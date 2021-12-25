@@ -1,4 +1,4 @@
-import actionTypes from "../Constants/actionTypes";
+import actionTypes from '../Constants/actionTypes';
 
 const initialState = {
   user: {},
@@ -8,7 +8,7 @@ const initialState = {
 
 const signupReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-      case actionTypes.USER_SIGNUP:
+    case actionTypes.USER_SIGNUP:
       return {
         user: payload,
         error: null,

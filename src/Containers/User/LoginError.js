@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
 
 const LoginError = ({ error }) => {
   const [isError, setIsError] = useState();
-
+  setIsError(isError);
   return (
     <div>
       {isError ? (

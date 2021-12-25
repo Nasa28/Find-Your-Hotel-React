@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import LoggedInUser from '../Containers/User/LoggedInUser';
 import FetchFav from '../Containers/FetchFav';
 import '../Styles/Navbar.css';
+
 const NavBar = () => {
   const auth = useSelector((state) => state.authenticate);
 

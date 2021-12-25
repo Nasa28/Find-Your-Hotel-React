@@ -19,7 +19,7 @@ describe('Hotel Reducer', () => {
       payload: hotels,
     });
 
-    expect(newState).toEqual({ hotels: hotels });
+    expect(newState).toEqual({ hotels });
   });
 
   it('Should return new state if action type is recieved', () => {

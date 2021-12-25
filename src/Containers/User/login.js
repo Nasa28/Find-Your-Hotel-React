@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
+import { Navigate } from 'react-router';
 import authenticate from '../../Redux/Actions/authenticate';
 import { userLogin, loginFailure } from '../../Redux/Actions/login';
-import axios from 'axios';
 import LoginError from './LoginError';
-import { Navigate } from 'react-router';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -54,7 +54,7 @@ const Login = () => {
     <div className="col-4 login">
       <h2 className="text-center mb-4">User Login</h2>
       {login.error && <LoginError error={login.error} />}
-      {auth.status && <Navigate to="/" replace={true} />}
+      {auth.status && <Navigate to="/" replace />}
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <input
