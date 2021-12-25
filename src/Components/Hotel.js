@@ -14,7 +14,7 @@ const Hotel = (props) => {
 
   const auth = useSelector((state) => state.authenticate);
   const addFavouriteHandler = async () => {
-    const url = 'http://localhost:8000/api/v1/favourites';
+    const url = 'https://findmyhotels.herokuapp.com/api/v1/favourites';
     try {
       await axios.post(
         url,

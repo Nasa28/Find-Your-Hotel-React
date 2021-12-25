@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 const FetchFav = () => {
   const auth = useSelector((state) => state.authenticate);
   const dispatch = useDispatch();
-  const url = 'http://localhost:8000/api/v1/favourites';
+  const url = 'https://findmyhotels.herokuapp.com/api/v1/favourites';
 
   const fetchhandler = () => {
     axios

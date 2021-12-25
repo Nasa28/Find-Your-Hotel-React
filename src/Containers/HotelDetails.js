@@ -10,7 +10,7 @@ const HotelDetails = () => {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const { id } = useParams();
-  const url = `http://localhost:8000/api/v1/hotels/${id}`;
+  const url = `https://findmyhotels.herokuapp.com/api/v1/hotels/${id}`;
 
   const fetchDetails = async () => {
     try {

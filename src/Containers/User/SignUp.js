@@ -22,7 +22,7 @@ const SignUp = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const url = 'http://localhost:8000/api/v1/signup';
+    const url = 'https://findmyhotels.herokuapp.com/api/v1/signup';
     axios
       .post(url, { user: person })
       .then((response) => {

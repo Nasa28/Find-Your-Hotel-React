@@ -10,7 +10,7 @@ const HotelList = () => {
   const hotels = useSelector((state) => state.hotel.hotels);
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
-  const url = 'http://localhost:8000/api/v1/hotels';
+  const url = 'https://findmyhotels.herokuapp.com/api/v1/hotels';
   const favHotels = useSelector((state) => state.favourites.favourite);
 
   const myFetch = async () => {

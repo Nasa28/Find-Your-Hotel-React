@@ -23,7 +23,7 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const url = 'http://localhost:8000/api/v1/login';
+    const url = 'https://findmyhotels.herokuapp.com/api/v1/login';
     axios
       .post(url, { ...person })
       .then((response) => {
