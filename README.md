@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+ #              FIND HOTEL ACCOMODATION APP
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> Find Hotel Accommodation App is a FullStack app built with ReactJs for the frontend and Ruby On Rails for the backEnd. When you first visit the app, you will see the homepage from where you can visit either visit the Hotel list, Login or Sign up.
+ On the Hotel list page, a user can add some hotels to his favorite, by clicking the add to favorites button.
+> NB: The add to the favorite button is only visible to logged-in users.
 
-## Available Scripts
+> From the favorite page, you can click on the remove favorite button to remove a particular house from your favorite list. Also, by clicking on any of the houses, you can access the details page of the house.
 
-In the project directory, you can run:
+![screenshot](src/images/readme!.png)
 
-### `yarn start`
+![screenshot](src/images/readme2.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Built With
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Node.js
+- React
+- React-DOM
+- Redux
+- CSS
+- ES6
+- npm
+- Redux-persist
+- Bootstrap
 
-### `yarn test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To run this project locally, make sure you have done the following:
 
-### `yarn build`
+- Installed Node.js, more information [here](https://nodejs.org/en/)
+- Installed Node package manager
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Get a copy of the project by running
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+ git clone git@github.com:Nasa28/Find-Your-Hotel-React.git
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
 
-### `yarn eject`
+on your terminal.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Setup, Installations and usage
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- cd into the project
+- open the project using code editor of your choice
+- Run `npm install` to install all dependencies
+- Run `npm start` to start the server
+- Open your prefered browser
+- Visit `http://localhost:3000/`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Live version
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### [Live Version]()
 
-## Learn More
+## Back-end
+### [Backend Link](https://github.com/Nasa28/Find-Your-Hotel-API)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## RUN TEST
 
-### Code Splitting
+```
+npm test
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
 
-### Analyzing the Bundle Size
+## Authors
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+👨‍💻 **Kalu Chinasa Agu**
 
-### Making a Progressive Web App
+- Github: [@Nasa28](https://github.com/Nasa28)
+- Twitter: [@Ultimate_Nasa](https://twitter.com/Ultimate_Nasa)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/kalu-chinasa-agu-a15080103/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🤝 Contributing
 
-### Advanced Configuration
+Contributions, issues, and feature requests are welcome!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Feel free to check the [issues page](git@github.com:Nasa28/Find-Your-Hotel-React.git/issues).
 
-### Deployment
+## Acknowledgements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+[Microverse](https://www.microverse.org/)
 
-### `yarn build` fails to minify
+[Alexey Savitskiy on Behance](https://www.behance.net/alexey_savitskiy)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## 📝 License
+
+This project is [MIT](https://github.com/stevenvachon/broken-link-checker/blob/main/license) licensed.
